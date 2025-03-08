@@ -1,0 +1,13 @@
+# Ignore class files
+*.class
+
+# Ignore bean setting classpath setting files
+*.classpath
+.settings/
+
+# Ignore STS-specific files
+**/.classpath
+**/.project
+**/.settings/
+
+.metadata
