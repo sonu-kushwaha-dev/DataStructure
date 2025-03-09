@@ -81,6 +81,23 @@ public class DoublyLinkedList<T> {
 		else {
 
 			Node<T> curr_node = head;
+			
+			while(curr_node!=null && !curr_node.data.equals(data)) {
+				curr_node=curr_node.next;
+			}
+			
+			if(curr_node==head) {
+				head=curr_node.next;
+				curr_node.previous=null;
+			}
+			
+			if(curr_node.next!=null) {
+				curr_node.previous.next=curr_node.next;
+			}
+			
+			if(curr_node.previous!=null) {
+				curr_node.next.previous= curr_node.previous;
+			}
 
 		}
 	}
@@ -101,7 +118,10 @@ public class DoublyLinkedList<T> {
 		node.append(16);
 		System.out.println("\nDoubly Linked List Values : ");
 		node.traversal();
-
+		
+		System.out.println("\nDeleting node 14");
+		node.delete(14);
+		node.traversal();
 	}
 
 }
