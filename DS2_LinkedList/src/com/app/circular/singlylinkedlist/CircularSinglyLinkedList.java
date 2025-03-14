@@ -31,13 +31,10 @@ public class CircularSinglyLinkedList<T> {
 	public void delete(T data) {
 
 		if (head == null) {
-
 			System.out.println("No Data");
 		} else if (head.data.equals(data) && head == head.next) {
 			head = null;
-		}
-
-		else if (head.data.equals(data) && head != head.next) {
+		} else if (head.data.equals(data) && head != head.next) {
 
 			Node<T> curr_node = head.next;
 

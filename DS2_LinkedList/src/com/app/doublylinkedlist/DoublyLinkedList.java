@@ -11,11 +11,9 @@ public class DoublyLinkedList<T> {
 	public void append(T data) {
 
 		Node<T> new_node = new Node<>(data);
-
 		if (head == null) {
 			head = new_node;
 		}
-
 		else {
 			Node<T> temp = head;
 			while (temp.next != null) {
@@ -24,7 +22,6 @@ public class DoublyLinkedList<T> {
 			temp.next = new_node;
 			new_node.previous = temp;
 		}
-
 	}
 
 	public void traversal() {

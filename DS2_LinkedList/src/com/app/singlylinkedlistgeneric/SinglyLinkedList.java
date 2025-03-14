@@ -82,25 +82,24 @@ public class SinglyLinkedList<T> {
 		} else {
 
 			Node<T> temp = head;
-			Node<T> preNode =null;
+			Node<T> preNode = null;
 
 			while (temp != null && !temp.data.equals(data)) {
 				preNode = temp;
 				temp = temp.next;
 			}
 
-			if (temp != null ) {
+			if (temp != null) {
 				System.out.println("Data Found");
-				preNode.next=temp.next;
-			} 
-			else {
+				preNode.next = temp.next;
+			} else {
 				System.out.println("No Data");
 			}
 		}
 	}
 
 	public static void main(String[] args) {
-		
+
 		SinglyLinkedList<Integer> node = new SinglyLinkedList<>();
 		node.insert(1);
 		node.insert(2);
@@ -108,5 +107,4 @@ public class SinglyLinkedList<T> {
 		node.traversal();
 
 	}
-
 }
