@@ -1,4 +1,4 @@
-package com.app;
+package com.app.simplequeue;
 
 public class ArrayBasedSimpleQueue {
 
