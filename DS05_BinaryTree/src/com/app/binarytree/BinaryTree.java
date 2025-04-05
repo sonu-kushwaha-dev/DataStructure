@@ -9,7 +9,6 @@ public class BinaryTree<T> {
 	}
 
 	// Pre-Order Traversal, In-order Traversal, Post-Order Traversal
-
 	public void preOrderTraversal(Node<T> node) {
 
 		if (node == null) {
@@ -42,6 +41,29 @@ public class BinaryTree<T> {
 		System.out.println("Node Element : " + node.data);
 	}
 
+	public boolean searchKey(Node<T> root, T key) {
+
+		if (root == null) {
+			return false;
+		}
+		if (root.data.equals(key)) {
+			return true;
+		}
+		return searchKey(root.left, key) || searchKey(root.right, key);
+	}
+
+	public boolean updateKey(Node<T> root, T oldKey, T newKey) {
+
+		if (root == null) {
+			return false;
+		}
+		if (root.data.equals(oldKey)) {
+			root.data = newKey;
+			return true;
+		}
+		return updateKey(root.left, oldKey, newKey) || updateKey(root.right, oldKey, newKey);
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("Adding element in binary tree \n");
@@ -64,7 +86,6 @@ public class BinaryTree<T> {
 		tree.root.right.left = new Node<Integer>(21);
 		tree.root.right.right = new Node<Integer>(22);
 
-		
 		System.out.println("Pre Order Traversal \n");
 		tree.preOrderTraversal(tree.root);
 
@@ -73,6 +94,23 @@ public class BinaryTree<T> {
 
 		System.out.println("\n Post Order traversal of BIary Tree");
 		tree.postOrderTraversal(tree.root);
+
+		// search key in binary tree
+		boolean flag = tree.searchKey(tree.root, 14);
+		if (flag)
+			System.out.println("\nKey Found");
+		else
+			System.out.println("\nKey not found");
+
+		// update key with new key value
+		boolean flag1 = tree.updateKey(tree.root, 21, 50);
+		if (flag1)
+			System.out.println("\nKey updated with new key");
+		else
+			System.out.println("\nKey not found");
+
+		System.out.println("\nupdate binary tree is : ");
+		tree.preOrderTraversal(tree.root);
 
 	}
 
