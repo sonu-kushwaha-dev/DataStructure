@@ -8,7 +8,7 @@ public class AVLTree<T extends Comparable<T>> {
 		this.root = null;
 	}
 
-	// sorted key of AVl tree
+	// Sorted Key of AVl Tree
 	public void inOrderTraversal() {
 		inOrderTraversal(root);
 	}
@@ -63,7 +63,7 @@ public class AVLTree<T extends Comparable<T>> {
 		return y;
 	}
 
-	// Adding key in AVL tree
+	// Adding Key in AVL Tree
 	public void insert(T key) {
 		root = insert(root, key);
 	}
@@ -89,17 +89,17 @@ public class AVLTree<T extends Comparable<T>> {
 		if (factor < -1 && key.compareTo(node.right.data) > 0) {
 			return leftRotation(node);
 		}
-		// left right imbalance (Require left right rotation)
+		// Left Right Imbalance (Require left right rotation)
 		if (factor > 1 && key.compareTo(node.left.data) > 0) {
-			Node<T> left = leftRotation(node.left);
-			return rightRotation(left);
+			node.left = leftRotation(node.left);
+			return rightRotation(node);
 		}
 		// Right Left Imbalance (Require Right Left rotation )
 		if (factor < -1 && key.compareTo(node.right.data) < 0) {
-			 Node<T> right = rightRotation(node.right);
-			 return leftRotation(right);
+			node.right = rightRotation(node.right);
+			return leftRotation(node);
 		}
-		
+
 		return node;
 	}
 
@@ -124,16 +124,14 @@ public class AVLTree<T extends Comparable<T>> {
 
 		System.out.println("Travesring : ");
 		tree.inOrderTraversal();
-		System.out.println("Height : "+tree.height(tree.root));
-		
+		System.out.println("Height : " + tree.height(tree.root));
+
 		tree.insert(14);
 		System.out.println("Factor : " + tree.getBalancefactor(tree.root));
 
 		System.out.println("Travesring : ");
 		tree.inOrderTraversal();
-		System.out.println("Height : "+tree.height(tree.root));
-		
-		
-	}
+		System.out.println("Height : " + tree.height(tree.root));
 
+	}
 }
