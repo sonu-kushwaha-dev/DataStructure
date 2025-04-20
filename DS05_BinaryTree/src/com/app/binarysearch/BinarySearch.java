@@ -4,7 +4,7 @@ public class BinarySearch {
 
 	public int search(int[] nums, int target) {
 
-		int low = 0, high = nums.length - 1,mid=0;
+		int low = 0, high = nums.length - 1, mid=0;
 
 		while (low <= high) {
 			
@@ -29,5 +29,4 @@ public class BinarySearch {
 		System.out.println(bs.search(nums, 17));
 
 	}
-
 }
